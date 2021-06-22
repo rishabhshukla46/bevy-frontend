@@ -1,0 +1,14 @@
+.sign-up{
+    width: 100%;
+}
+.form-field-signup{
+    display: flex;
+    justify-content: space-around;
+}
+.form-field-select{
+    margin-left: 70px;
+    width: 80%;
+}
+.signup-button{
+    margin: 10px;
+}

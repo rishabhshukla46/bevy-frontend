@@ -8,6 +8,10 @@
   --main-text: #012a4a;
   --sub-text: #014f86;
 }
+p{
+  padding: 0;
+  margin: 0;
+}
 .App{
   display: flex;
   height: 100vh;

@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { Button, TextField } from '@material-ui/core';
-import './SignIn.css'
+import './SignIn.css';
+import { useHistory } from "react-router-dom";
 
 function SignIn() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
 
     const onChange = (e) => {
         const {name, value} = e.target;
@@ -20,9 +22,12 @@ function SignIn() {
         e.preventDefault();
         axios.get('http://127.0.0.1:8010/user/list/')
         .then((res) => {
-            console.log(res.data);
-            const user = res.data.filter((user) => user.name === name);
-            console.log(user)
+            const user = res.data.filter((user) => {
+                return user.userId === name;
+            })
+            if(user.length){
+                history.push(`user/${user[0].id}`);
+            }
         })
         .catch((error) => console.log(error));
         setName("");
@@ -35,7 +40,9 @@ function SignIn() {
                         className='text-field' 
                         label='Enter Username'
                         variant="outlined"
+                        name='name'
                         value={name}
+                        autoComplete='off'
                         onChange={onChange}
                     />
                 </div>
@@ -45,6 +52,8 @@ function SignIn() {
                         type='password'
                         label='Enter Password'
                         variant="outlined"
+                        name='password'
+                        autoComplete='off'
                         value={password}
                         onChange={onChange}
                     />

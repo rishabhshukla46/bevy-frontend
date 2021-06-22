@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import UserPage from './pages/UserPage/UserPage';
 
 function App() {
   const [user, setUser] = useState();
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <LandingPage />
+          </Route>
+          <Route exact path='/user/:id'>
+            <UserPage />
           </Route>
         </Switch>
       </BrowserRouter>

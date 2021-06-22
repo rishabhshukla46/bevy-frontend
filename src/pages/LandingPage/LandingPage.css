@@ -1,7 +1,23 @@
 .landing-page{
-padding: 20px 50px 50px 50px;
+  padding: 20px 50px 50px 50px;
   width: 80%;
   height: 100%;
   border-radius: 10px;
   background-color: var(--box-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.toggle-button{
+  width: 30%;
+}
+.not-a-user-button{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px;
+}
+.not-a-user-button.false{
+  display: none;
 }
